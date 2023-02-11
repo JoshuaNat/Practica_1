@@ -31,6 +31,9 @@ def contenido_archivo(filename):
 def hex_a_dec():
 	for obj in Datos_Originales:
 		H = obj.ipv6.split(":")
+		for numero in H:
+			D = int(numero, base=16)
+			print(D)
 
 
 contenido_archivo("prueba2.txt")
