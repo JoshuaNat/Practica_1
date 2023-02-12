@@ -20,11 +20,16 @@ def contenido_archivo(filename):
 			list.append(Datos(info[0], info[2], info[5])) #Se asignan los valores y se anexan a la lista
 
 def hex_a_dec():
+	cadena = ''
 	for obj in list:
 		H = obj.ipv6.split(":")
+		ultimo = H[-1]
 		for numero in H:
 			D = int(numero, base=16)
-			print(D)
+			cadena += str(D) + ":"
+			if numero == ultimo:
+				cadena += "\n"
+	print(cadena)
 
 
 contenido_archivo("prueba2.txt")
