@@ -28,9 +28,22 @@ def hex_a_dec():
 			D = int(numero, base=16)
 			cadena += str(D) + ":"
 			if numero == ultimo:
+				cadena += obj.apellido + "\n"
+	print(cadena)
+
+def dec_a_hex():
+	cadena = ''
+	for obj in list:
+		D = obj.ipv4.split(".")
+		ultimo = D[-1]
+		for numero in D:
+			H = hex(int(numero))
+			cadena += H[2:] + "."
+			if numero == ultimo:
 				cadena += "\n"
 	print(cadena)
 
 
+
 contenido_archivo("prueba2.txt")
-hex_a_dec()
+dec_a_hex()
