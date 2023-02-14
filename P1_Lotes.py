@@ -46,13 +46,25 @@ def hex_a_dec():
 			else:
 				D = int(numero, base=16)
 				cadena += ':' + str(D)
-		prueba(cadena, obj.apellido)
+		dec_a_hex(cadena, obj.apellido)
+
+def dec_a_hex(cadena, ID):
+	for obj in list:
+		if ID == obj.apellido:
+			D = obj.ipv4.split(".")
+			ultimo = D[-1]
+			for numero in D:
+				H = hex(int(numero))
+				if numero == ultimo:
+					cadena += H[2:] + "\n"
+				else:
+					cadena += H[2:] + "."
+			print(cadena)
 
 
-
-def prueba(cadena, apellido):
+def prueba(cadena):
 	print(cadena)
-	print(f"el apellido es {apellido}")
+	print("Ojala y jale")
 
 contenido_archivo("prueba2.txt")
 hex_a_dec()
