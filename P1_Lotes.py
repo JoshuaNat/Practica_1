@@ -19,19 +19,6 @@ def contenido_archivo(filename):
 			info = line.split(",") #Tras leerlo linea por linea, separa las lineas por comas
 			list.append(Datos(info[0], info[2], info[5])) #Se asignan los valores y se anexan a la lista
 
-"""
-def dec_a_hex():
-	cadena = ''
-	for obj in list:
-		D = obj.ipv4.split(".")
-		ultimo = D[-1]
-		for numero in D:
-			H = hex(int(numero))
-			cadena += H[2:] + "."
-			if numero == ultimo:
-				cadena += "\n"
-	print(cadena)
-"""
 
 def hex_a_dec():
 	for obj in list:
@@ -46,25 +33,29 @@ def hex_a_dec():
 			else:
 				D = int(numero, base=16)
 				cadena += ':' + str(D)
-		dec_a_hex(cadena, obj.apellido)
+		dec_a_hex(cadena, obj.ipv4)
+		#nuevo_archivo(cadena)
 
 def dec_a_hex(cadena, ID):
 	for obj in list:
-		if ID == obj.apellido:
+		if ID == obj.ipv4:
 			D = obj.ipv4.split(".")
 			ultimo = D[-1]
 			for numero in D:
 				H = hex(int(numero))
 				if numero == ultimo:
-					cadena += H[2:] + "\n"
+					cadena += H[2:]
 				else:
 					cadena += H[2:] + "."
-			print(cadena)
+			nuevo_archivo(cadena)
 
 
-def prueba(cadena):
-	print(cadena)
-	print("Ojala y jale")
+def nuevo_archivo(cadena):
+	with open("prueba3.txt", "a") as final:
+		final.write(cadena)
+		final.write("\n")
+
+
 
 contenido_archivo("prueba2.txt")
 hex_a_dec()
